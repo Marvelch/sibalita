@@ -19,17 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('auth')->group(function () {
-    // Define your routes here
-
-
-    // ...other routes
-});
-
 Route::post('/register',[AuthController::class,'register']);
-
 Route::post('/login',[AuthController::class,'login']);
-
 Route::post('/logout',[AuthController::class,'logout']);
-
 Route::get('/refreshToken',[AuthController::class,'refreshToken']);
