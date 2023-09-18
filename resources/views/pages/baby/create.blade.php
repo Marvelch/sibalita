@@ -1,13 +1,7 @@
-@@include('./partials/html.html')
+@extends('layouts.index')
 
-    <head>
-        @@include("./partials/title-meta.html", {"title": "Form Wizard"})
-
-        @@include('./partials/head-css.html')
-    </head>
-
-    <body>
-        <!-- Begin page -->
+@section('contents')
+<!-- Begin page -->
         <div class="wrapper">
 
             <div class="content-page">
@@ -579,19 +573,4 @@
 
         </div>
         <!-- END wrapper -->
-
-        @@include('./partials/right-sidebar.html')
-
-        @@include('./partials/footer-scripts.html')
-
-        <!-- Bootstrap Wizard Form js -->
-        <script src="assets/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-
-        <!-- Wizard Form Demo js -->
-        <script src="assets/js/pages/form-wizard.init.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
-
-    </body>
-</html>
+@endsection

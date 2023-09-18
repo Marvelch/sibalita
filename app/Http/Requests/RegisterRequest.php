@@ -9,14 +9,6 @@ use Illuminate\Contracts\Validation\Validator;
 class RegisterRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
@@ -24,13 +16,16 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'nik' => 'required|min:15|max:16',
+            'place_of_birth' => 'required|min:2|max:100',
+            'date_of_birth' => 'required',
             'name' => 'required|min:2|max:255',
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|min:6'
         ];
     }
 
-    public function requestValidation(Validator $validator)
+    public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
             'statusCode'=> 400,

@@ -380,10 +380,13 @@
                     </a>
 
                     <!-- item-->
-                    <a href="auth-logout-2.html" class="dropdown-item">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    <button type="submit" class="dropdown-item">
                         <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                         <span>Logout</span>
-                    </a>
+                    </button>
+                    </form>
                 </div>
             </li>
         </ul>

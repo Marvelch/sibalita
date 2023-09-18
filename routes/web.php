@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BabyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth', 'prefix' => 'baby'], function () {
+    Route::get('create',[BabyController::class,'create'])->name('create_baby');
+    Route::get('Helo',function(){
+        echo "Hello";
+    });
+});

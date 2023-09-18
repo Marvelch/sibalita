@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Validation\Validator;
+use DB;
 
 class AuthController extends Controller
 {
@@ -53,12 +54,19 @@ class AuthController extends Controller
      */
     public function register(RegisterRequest $request,){
 
+        DB::beginTransaction();
+
         try {
             User::create([
+                'nik' => $request->nik,
+                'place_of_birth' => $request->place_of_birth,
+                'date_of_birth' => $request->date_of_birth,
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
+
+            DB::commit();
 
             return response()->json([
                 'statusCode' => 200,
@@ -67,6 +75,8 @@ class AuthController extends Controller
             ])->setStatusCode(200);
         } catch (\Throwable $th) {
             //throw $th;
+
+            DB::rollback();
 
             return response()->json([
                 'statusCode' => 404,
