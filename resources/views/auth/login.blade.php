@@ -14,7 +14,8 @@
                     <div class="card overflow-hidden">
                         <div class="row g-0">
                             <div class="col-lg-6 d-none d-lg-block p-2">
-                                <img src="{{asset('/assets/images/auth-img.jpg')}}" alt="" class="img-fluid rounded h-100">
+                                <img src="{{asset('/assets/images/auth-img.png')}}" alt=""
+                                    class="img-fluid rounded h-100">
                             </div>
                             <div class="col-lg-6">
                                 <div class="d-flex flex-column h-100">
@@ -76,6 +77,22 @@
                                                         class="ri-login-circle-fill me-1"></i> <span
                                                         class="fw-bold">Masuk</span> </button>
                                             </div>
+                                            <div class="text-center mt-2">
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <hr>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        OR
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex gap-2 justify-content-center mt-1">
+                                                    <a class="btn btn-primary fw-semibold w-100" href="{{url('register')}}">Daftar</a>
+                                                </div>
+                                            </div>
                                         </form>
                                         <!-- end form-->
                                     </div>
@@ -86,32 +103,16 @@
                 </div>
                 <!-- end row -->
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="text-dark-emphasis">Tidak punya akun? <a href="auth-register.html"
-                            class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Daftar
-                                Sekarang</b></a>
-                    </p>
-                </div> <!-- end col -->
-            </div>
             <!-- end row -->
         </div>
         <!-- end container -->
     </div>
     <!-- end page -->
 
-    <footer class="footer footer-alt fw-medium">
-        <span class="text-dark">
-            <script>
-                document.write(new Date().getFullYear())
-
-            </script> © Dinkes - Talaud
-        </span>
-    </footer>
-    @include('../partials/footer-scripts')
+    @include('./partials/footer-scripts')
 
     <!-- App js -->
-    <script src="assets/js/app.min.js"></script>
+    <script src="{{asset('./assets/js/app.min.js')}}"></script>
 
 </body>
 
